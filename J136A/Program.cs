@@ -3,7 +3,7 @@ Dictionary<ushort, OutputLine> output = [];
 Dictionary<char, ushort> Symbols = new()
 {
     ['A'] = 2560,
-    ['B'] = 2924,
+    ['B'] = 2922,
     ['C'] = ushort.MaxValue,
     ['D'] = 2912,
     ['E'] = 2464,
@@ -146,7 +146,8 @@ void FinalizeRoutine()
 {
     foreach (ParsedLine line in processingLines)
     {
-        if(output.ContainsKey(line.Address)){
+        if (output.ContainsKey(line.Address))
+        {
             throw new Exception($"Duplicate line {line.Address}");
         }
         ushort leftAddress = AssignAddress(line.LeftAddress);
